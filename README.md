@@ -147,3 +147,105 @@ drop table Users;
 Query Ok. 5 rows affected (0.000023 sec)
 ```
 ## Task #8   
+Implement the logic needed to perform a `LEFT JOIN`, or a `RIGHT JOIN`.
+```
+> select * from Authors;
++----+------------+-----------+
+| id | first_name | last_name |
++----+------------+-----------+
+|  1 | Stephen    | King      |
+|  2 | JK         | Rowling   |
+|  3 | Truong     | Nguyen    |
++----+------------+-----------+
+3 rows in set (0.00 sec)
+
+> select * from Books;
++----+-------------------------------------------+-----------+
+| id | title                                     | author_id |
++----+-------------------------------------------+-----------+
+|  1 | Harry Potter and the Sorcerer's Stone     |         2 |
+|  2 | Harry Potter and the Philosopher's Stone  |         2 |
+|  3 | Harry Potter and the Prisoner of Azkaban  |         2 |
+|  4 | Harry Potter and the Chamber of Secrets   |         2 |
+|  5 | Harry Potter and the Goblet of Fire       |         2 |
+|  6 | Harry Potter and the Order of the Phoenix |         2 |
+|  7 | Harry Potter and the Half-Blood Prince    |         2 |
+|  8 | Carrie                                    |         1 |
+|  9 | The Dark Tower                            |         1 |
+| 10 | The Green Mile                            |         1 |
+| 11 | Wavelets and Filter Banks                 |         0 |
++----+-------------------------------------------+-----------+
+11 rows in set (0.00 sec)
+```
+1. left join
+```
+> select last_name, title from Authors left join Books on Authors.id=Books.author_id;
++-----------+-------------------------------------------+
+| last_name | title                                     |
++-----------+-------------------------------------------+
+| Rowling   | Harry Potter and the Sorcerer's Stone     |
+| Rowling   | Harry Potter and the Philosopher's Stone  |
+| Rowling   | Harry Potter and the Prisoner of Azkaban  |
+| Rowling   | Harry Potter and the Chamber of Secrets   |
+| Rowling   | Harry Potter and the Goblet of Fire       |
+| Rowling   | Harry Potter and the Order of the Phoenix |
+| Rowling   | Harry Potter and the Half-Blood Prince    |
+| King      | Carrie                                    |
+| King      | The Dark Tower                            |
+| King      | The Green Mile                            |
+| Nguyen    | NULL                                      |
++-----------+-------------------------------------------+
+11 rows in set (0.00 sec)
+```
+2. right join
+```
+> select last_name, title from Authors right join Books on Authors.id=Books.author_id;
++-----------+-------------------------------------------+
+| last_name | title                                     |
++-----------+-------------------------------------------+
+| King      | Carrie                                    |
+| King      | The Dark Tower                            |
+| King      | The Green Mile                            |
+| Rowling   | Harry Potter and the Sorcerer's Stone     |
+| Rowling   | Harry Potter and the Philosopher's Stone  |
+| Rowling   | Harry Potter and the Prisoner of Azkaban  |
+| Rowling   | Harry Potter and the Chamber of Secrets   |
+| Rowling   | Harry Potter and the Goblet of Fire       |
+| Rowling   | Harry Potter and the Order of the Phoenix |
+| Rowling   | Harry Potter and the Half-Blood Prince    |
+| NULL      | Wavelets and Filter Banks                 |
++-----------+-------------------------------------------+
+11 rows in set (0.00 sec)
+```
+## Task #9
+Building an index to improve performance.  
+We are going to add a primary-key index to tables that we create.  
+1. Add support for the SHOW INDEXES command, which shows all the indexes defined for a given database.  
+```
+> show indexes
++-----------------+-----------------+
+| table           | field(s)        | 
++-----------------+-----------------+
+| users           | id              |  
++-----------------+-----------------+
+1 rows in set (nnnn secs)
+```
+2. Add support for the SHOW INDEX command, that shows all the key/value pairs found in an index (shown below)
+```
+> SHOW index id FROM Users; 
++-----------------+-----------------+
+| key             | block#          | 
++-----------------+-----------------+
+| 1               | 35              |  
++-----------------+-----------------+
+| 2               | 36              |  
++-----------------+-----------------+
+| 3               | 47              |  
++-----------------+-----------------+
+3 rows in set (nnnn secs)
+```
+## Task #10
+Add a cache to improve overall system performance.  
+`Least recently used cache(LRU Cache)`  
+The database system is able to run with the cache enabled or disabled.    
+When enabled, I will load blocks into my cache, so that they may be retrieve more quickly on a subsequent request. The caching policy algorithm should be designed to keep "most-recently-used" blocks, and discard the "least recently used". If block requests exceed the capacity of your cache, you may have to discard recently used blocks.
