@@ -1,5 +1,12 @@
-### Relational Database System
+# Relational Database System
 A relational database system like MySQL in C++17
+## Handle Input
+### Scanning -> Tokenizing -> Parsing
+**Scanning**: The process of doing character by character analysis of user input, in order to help logically organize input into byte-sized chunks (called **Tokens**).    
+**Tokenizing**: The process of analyzing character groupings produced by the scanning logic and identifying the “parts of grammar and syntax" that these groupings represent.  
+**Parsing**: Group a collection of tokens into meaningful “sentences”(called **statements**) that make sense in the grammar of the language  
+we're processing.  
+![image](https://github.com/TYJ99/relational-database/blob/main/images%20used%20in%20readme/Handle%20input.JPG)![image](https://github.com/TYJ99/relational-database/blob/main/images%20used%20in%20readme/Handle%20input%202.JPG)
 ![image](https://github.com/TYJ99/relational-database/blob/main/images%20used%20in%20readme/291848349_1091827508086061_193881343118258287_n.jpg)  
 ![image](https://github.com/TYJ99/relational-database/blob/main/images%20used%20in%20readme/292314609_2302107486620080_3005346238732548585_n.jpg)
 ## Task #1
