@@ -1,5 +1,13 @@
 # Relational Database System
-A relational database system like MySQL in C++17
+A relational database system like MySQL in C++17.  
+The database system is built upon the **MVC(Model-View-Controller)** application design pattern. The “top-level” controller of my program will be an
+Application class. Moreover, I use the **chain-of-responsibility** design pattern to handle processing of user provided commands.
+## Coding Standards
+1. Argument names start with lower-case “a” (aValue)
+2. Local variable names start with “the”; (theInt)
+3. Object member names start with lower case, not prefix required
+4. Class names are “camel-case” (SomeClass)
+5. Methods should have a comment block explaining what they do
 ## Handle Input
 ### Scanning -> Tokenizing -> Parsing
 **Scanning**: The process of doing character by character analysis of user input, in order to help logically organize input into byte-sized chunks (called **Tokens**).    
