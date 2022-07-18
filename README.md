@@ -257,3 +257,9 @@ Add a cache to improve overall system performance.
 `Least recently used cache(LRU Cache)`  
 The database system is able to run with the cache enabled or disabled.    
 When enabled, I will load blocks into my cache, so that they may be retrieve more quickly on a subsequent request. The caching policy algorithm should be designed to keep "most-recently-used" blocks, and discard the "least recently used". If block requests exceed the capacity of your cache, you may have to discard recently used blocks.
+## Task #11
+Implement two variations of the `alter table {table name} ...` command. There are two variations that I dealt with:
+```
+ALTER TABLE Books ADD  pub_year int;  -- adding a new column
+ALTER TABLE Books DROP subtitle;  -- dropping an existing column
+```
