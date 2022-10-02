@@ -54,7 +54,7 @@ namespace ECE141 {
 
 	protected:
 		std::unique_ptr<DBProcessor>    nextLevelDB;
-		std::shared_ptr<Database>		databaseInUse;
+		std::unique_ptr<Database>		databaseInUse;
 		std::fstream					dbFile; //File Stream for creating new DB files
 	};
 
