@@ -733,11 +733,11 @@ namespace ECE141 {
 			theStream1 << "select * from Users;\n";
 
 			theStream1 << "DELETE from Users where zipcode=92120;\n";
-			theStream1 << "select * from Users\n";
+			theStream1 << "select * from Users;\n";
 			theStream1 << "DELETE from Users where zipcode<92124;\n";
-			theStream1 << "select * from Users\n";
+			theStream1 << "select * from Users;\n";
 			theStream1 << "DELETE from Users where zipcode>92124;\n";
-			theStream1 << "select * from Users\n";
+			theStream1 << "select * from Users;\n";
 			theStream1 << "drop database " << theDBName1 << ";\n";
 			theStream1 << "quit;\n";
 
@@ -849,9 +849,9 @@ namespace ECE141 {
 			addUsersTable(theStream1);
 			insertUsers(theStream1, 0, 5);
 
-			theStream1 << "show tables\n";
+			theStream1 << "show tables;\n";
 			theStream1 << "drop table Users;\n";
-			theStream1 << "show tables\n";
+			theStream1 << "show tables;\n";
 			theStream1 << "drop database " << theDBName1 << ";\n";
 
 			std::string temp(theStream1.str());
@@ -905,11 +905,11 @@ namespace ECE141 {
 			theStream1 << "drop database " << theDBName2 << ";\n";
 			theStream1 << "use " << theDBName1 << ";\n";
 
-			theStream1 << "select * from Users\n";
+			theStream1 << "select * from Users;\n";
 			insertFakeUsers(theStream1, 30, 1);
 
 			theStream1 << "DELETE from Users where age>60;\n";
-			theStream1 << "select * from Users\n";
+			theStream1 << "select * from Users;\n";
 			insertFakeUsers(theStream1, 30, 1);
 
 			theStream1 << "show index id from Users;\n";
