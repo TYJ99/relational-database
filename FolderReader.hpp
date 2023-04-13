@@ -13,6 +13,7 @@
 #include <filesystem>
 #include <fstream>
 #include "Config.hpp"
+#include <functional>
 
 namespace fs = std::filesystem;
 

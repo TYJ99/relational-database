@@ -8,6 +8,7 @@
 #include <vector>
 #include <string>
 #include "View.hpp"
+#include "BasicTypes.hpp"
 
 namespace ECE141 {
 

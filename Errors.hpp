@@ -9,6 +9,8 @@
 #ifndef Errors_h
 #define Errors_h
 
+#include <stdint.h>
+
 namespace ECE141 {
 
 	enum Errors {
