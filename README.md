@@ -1,5 +1,5 @@
 # Relational Database System
-A relational database system like MySQL in C++17.  
+A MySQL-like relational database system in C++17.  
 The database system is built upon the **MVC(Model-View-Controller)** application design pattern. The “top-level” controller of my program will be an
 Application class. Moreover, I use the **chain-of-responsibility** design pattern to handle processing of user provided commands.
 ## Coding Standards
